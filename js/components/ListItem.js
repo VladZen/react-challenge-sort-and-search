@@ -4,7 +4,7 @@ const ListItem = ({user}) => {
   return (
     <tr>
       <td>
-        <img src={user.image} />
+        <img src={'images/' + user.image + '.svg'} />
       </td>
 
       <td>{user.name}</td>

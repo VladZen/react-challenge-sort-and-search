@@ -1,35 +1,45 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
 import ToolBar from './components/ToolBar';
-import DetailedView from './components/DetailedView';
-import List from './components/List';
-
+import Userlist from './components/Userlist';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      searchText: '',
+
+    };
   }
+
+  getData() {
+    let request = new XMLHttpRequest();
+    let listData;
+
+    request.open('GET', 'data.json', false);
+    request.onreadystatechange = () => {
+      if (request.readyState == 4 && request.status == 200){
+        listData = JSON.parse(request.response);
+      }
+    };
+    request.send();
+
+    return listData;
+  }
+
+
 
   render() {
     return (
       <div className="container-fluid app">
         <div className="row">
           <div className="col-sm-12">
-            <SearchBar />
+            <SearchBar text={this.state.searchText} />
             <ToolBar />
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-sm-4">
-            <DetailedView />
-          </div>
-
-          <div className="col-sm-8">
-            <List />
-          </div>
-        </div>
+        <Userlist listData={this.getData()}/>
       </div>
     );
   }

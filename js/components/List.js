@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ListItem from './ListItem'
 
-const List = () => {
+const List = ({listData}) => {
   return (
-    <table className="detailed-view__props table table-striped">
+    <table className="userlist table table-striped bordered">
       <thead>
         <tr>
           <th>Image</th>
@@ -14,7 +14,12 @@ const List = () => {
       </thead>
 
       <tbody>
-        <ListItem user="{}" />
+        {
+          listData.map((item, index, arr) => {
+            console.log(item, index);
+            return <ListItem key={item.id} user={item} />
+          })
+        }
       </tbody>
     </table>
   );

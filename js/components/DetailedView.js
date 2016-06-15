@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const DetailedView = () => {
+const DetailedView = ({shown}) => {
   return (
-    <div className="detailed-view">
+    <div className="detailed-view bordered">
       <img className="detailed-view__avatar" src="#" />
       <h2 className="detailed-view__name text-center">Milton Davis</h2>
 
