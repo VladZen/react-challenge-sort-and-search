@@ -24,6 +24,10 @@
   color: #ccc;
 }
 
+h2 {
+  margin: 20px auto;
+}
+
 .userlist {
   td {
     vertical-align: middle !important;
@@ -31,6 +35,10 @@
     img {
       height: 40px;
     }
+  }
+
+  tr {
+    cursor: pointer;
   }
 
   tr:first-child {

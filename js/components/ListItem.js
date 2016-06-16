@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 
-const ListItem = ({user}) => {
-  return (
-    <tr>
-      <td>
-        <img src={'images/' + user.image + '.svg'} />
-      </td>
+export default class ListItem extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-      <td>{user.name}</td>
-      <td>{user.age}</td>
-      <td>{user.phone}</td>
-    </tr>
-  );
+  show() {
+    this.props.onClick(this.props.user);
+  }
+
+  render() {
+    return (
+      <tr onClick={ () => this.show() }>
+        <td>
+          <img src={ 'images/' + this.props.user.image + '.svg' } />
+        </td>
+
+        <td>{ this.props.user.name }</td>
+        <td>{ this.props.user.age }</td>
+        <td>{ this.props.user.phone }</td>
+      </tr>
+    );
+  }
 }
 
 export default ListItem;
