@@ -16,7 +16,6 @@ const List = ({listData}) => {
       <tbody>
         {
           listData.map((item, index, arr) => {
-            console.log(item, index);
             return <ListItem key={item.id} user={item} />
           })
         }

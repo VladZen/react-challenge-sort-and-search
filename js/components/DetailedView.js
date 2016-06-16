@@ -25,7 +25,7 @@ const DetailedView = ({shown}) => {
         </tbody>
       </table>
 
-      <p>
+      <p className="detailed-view__quote">
         <b>Favorite phrase:</b>
 
         Juile ejtaglo olzam fifi pirviju pawisu du dorkuwfo pu fefmelfer sunozod hovitado lalis idrefzec mudic.

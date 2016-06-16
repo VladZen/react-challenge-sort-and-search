@@ -53,3 +53,22 @@
 .btn + .btn {
   margin-left: 15px;
 }
+
+.detailed-view {
+  &__quote {
+    padding: 15px;
+  }
+
+  &__avatar {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.sort-bar {
+  .fa {
+    margin-right: 5px;
+  }
+}

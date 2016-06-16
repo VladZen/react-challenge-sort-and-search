@@ -8,38 +8,45 @@ export default class App extends Component {
     super(props);
     this.state = {
       searchText: '',
-
+      sort:       null,
+      sortDir:    null
     };
+    this.handleSort   = this.handleSort.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-  getData() {
-    let request = new XMLHttpRequest();
-    let listData;
-
-    request.open('GET', 'data.json', false);
-    request.onreadystatechange = () => {
-      if (request.readyState == 4 && request.status == 200){
-        listData = JSON.parse(request.response);
-      }
-    };
-    request.send();
-
-    return listData;
+  handleSearch(searchText) {
+    this.setState({
+      searchText: searchText
+    });
   }
 
-
+  handleSort(sortProp, sortDir) {
+    this.setState({
+      sort: sortProp,
+      sortDir: sortDir
+    });
+  }
 
   render() {
     return (
       <div className="container-fluid app">
         <div className="row">
           <div className="col-sm-12">
-            <SearchBar text={this.state.searchText} />
-            <ToolBar />
+            <SearchBar
+              onChange={ this.handleSearch } />
+
+            <ToolBar
+              onChange={ this.handleSort }
+              sort={ this.state.sort }
+              sortDir={ this.state.sortDir } />
           </div>
         </div>
 
-        <Userlist listData={this.getData()}/>
+        <Userlist
+         sort={ this.state.sort }
+         sortDir={ this.state.sortDir }
+         searchValue={ this.state.searchText } />
       </div>
     );
   }
