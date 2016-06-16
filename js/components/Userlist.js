@@ -35,7 +35,7 @@ export default class Userlist extends Component {
       let words = user.name.split(' ');
       let match = false;
       words.forEach(function(el) {
-        let index = el.toLowerCase().indexOf(props.searchValue);
+        let index = el.toLowerCase().indexOf(props.searchValue.toLowerCase());
 
         if (index >= 0 && index < 2 ) {
           match = true;
